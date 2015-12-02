@@ -7,8 +7,8 @@ from nose.tools import assert_equals
 def set_browser():
     world.browser = webdriver.Firefox()
 #Código para agregar un cliente nuevo
-@step(r'Dado que el empleado "([^"]*)" no se encuentra registrado')
-def Dado_que_el_empleado_group1_no_se_encuentra_registrado(step, cliente):
+@step(r'Dado que el cliente "([^"]*)" no se encuentra registrado')
+def Dado_que_el_cliente_group1_no_se_encuentra_registrado(step, cliente):
     response = world.browser.get(url)
     world.dom = html.fromstring(response.content)
 
@@ -20,8 +20,8 @@ def Cuando_hago_clic_en_el_boton_crear(step):
 def Entonces_debo_ser_capaz_de_ver_el_mensaje_group1(step, texto):
     assert "" == texto
 #Código para consultar los datos de un cliente
-@step(r'Dado que el empleado "([^"]*)" se encuentra registrado en el sistema')
-def Dado_que_el_empleado_group1_se_encuentra_registrado_en_el_sistema(step, cliente):
+@step(r'Dado que el cliente "([^"]*)" se encuentra registrado en el sistema')
+def Dado_que_el_cliente_group1_se_encuentra_registrado_en_el_sistema(step, cliente):
     response = world.browser.get(url)
     world.dom = html.fromstring(response.content)
 
@@ -34,8 +34,8 @@ def Entonces_debo_ser_capaz_de_ver_el_mensaje_group1(step, texto):
     assert "" == texto
 
 #Código para eliminar los datos de un cliente
-@step(r'Dado que el empleado "([^"]*)" se encuentra registrado en el sistema')
-def Dado_que_el_empleado_group1_se_encuentra_registrado_en_el_sistema(step, cliente):
+@step(r'Dado que el cliente "([^"]*)" se encuentra registrado en el sistema')
+def Dado_que_el_cliente_group1_se_encuentra_registrado_en_el_sistema(step, cliente):
     response = world.browser.get(url)
     world.dom = html.fromstring(response.content)
 
@@ -48,8 +48,8 @@ def Entonces_debo_ser_capaz_de_ver_el_mensaje_group1(step, texto):
     assert "" == texto
 
 #Código para modificar los datos de un cliente
-@step(r'Dado que el empleado"([^"]*)" se encuentra registrado en el sistema')
-def Dado_que_el_empleado_group1_se_encuentra_registrado_en_el_sistema(step, cliente):
+@step(r'Dado que el cliente "([^"]*)" se encuentra registrado en el sistema')
+def Dado_que_el_cliente_group1_se_encuentra_registrado_en_el_sistema(step, cliente):
     response = world.browser.get(url)
     world.dom = html.fromstring(response.content)
 

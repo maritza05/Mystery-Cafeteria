@@ -1,19 +1,19 @@
-Feature: Agregar empleados nuevos
-Con el fin de poder tener más empleados
-Como un administrador
-Quierp agregar nuevos empleados.
+Feature: Agregar clientes nuevos
+Con el fin de poder tener más clientes
+Como un empleado registrado
+Quierp agregar nuevos clientes.
 
-Scenario: Agregar empleados exitosamente
-	Dado que el empleado "Manuel Almaraz" no se encuentra registrado
-	Cuando hago clic en crear
-	Entonces debo ser capaz de ver un mensaje "EM-001:Manuel Almaraz agregado exitosamente"
+Scenario: Agregar cliente exitosamente
+	Dado que el cliente "Vanessa Alcalá" no se encuentra registrado
+	Cuando hago clic en el botón crear
+	Entonces debo ser capaz de ver un mensaje "CL-001:Vanessa Alcalá agregado exitosamente"
 
-Scenario: Agegar un empleado ya existente 
-	Dado que el empleado "Manuel Almaraz" ya se encuentra registrado en el sistema
+Scenario: Agegar un cliente ya existente 
+	Dado que el cliente "Vanessa Alcalá" ya se encuentra registrado en el sistema
 	Cuando hago clic en crear 
-	Entonces debería ser capaz de ver un mensaje "Empleado ya registrado, por favor introduce información nueva"
+	Entonces debería ser capaz de ver un mensaje "Cliente ya registrado, por favor introduce información nueva"
 
-Scenario: Agregar un empleado sin éxito
-	Dado que el cliente Manuel Almaraz no se encuentra registrado en el sistema 
+Scenario: Agregar un cliente sin éxito
+	Dado que el cliente "Vanessa Alcalá" no se encuentra registrado en el sistema 
 	Cuando hago clic en crear
 	Entonces debería ser capaz de ver un mensaje con "Información insuficiente, por favor llene todos los campos"
