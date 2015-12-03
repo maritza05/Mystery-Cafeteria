@@ -60,7 +60,7 @@ class NewVisitorTest(unittest.TestCase):
 
         # He is invited to add a amount
         inputbox_amount = self.browser.find_element_by_id('id_amount')
-        self.assertEqual(inputbox_amount.get_attribute('placeholder')
+        self.assertEqual(inputbox_amount.get_attribute('placeholder'),
                 'Ingrese el monto de la compra'
                 )
         # He types "650.50" into a a text box
@@ -68,7 +68,7 @@ class NewVisitorTest(unittest.TestCase):
 
         # He sees the button "Registrar Compra"
         button_save = self.browser.find_element_by_id('id_buttonSave')
-        self.assertEqual(button_save.get_attribute('text')
+        self.assertEqual(button_save.get_attribute('text'),
                 'Registrar Compra'
                 )
         # He selects the button
