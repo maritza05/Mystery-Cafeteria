@@ -1,3 +1,4 @@
 from django.contrib import admin
+from puestos.models import Puesto
 
-# Register your models here.
+admin.site.register(Puesto)
