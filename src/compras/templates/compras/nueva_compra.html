@@ -1,0 +1,8 @@
+<h1>{{etiqueta_titulo}} Compra</h1>
+<form action="" method="POST">
+	{% csrf_token %}
+	{{form.as_p}}
+	<input type="hidden" name="id" value="{{id}}">
+	<button type="submit">{{etiqueta_boton}}</button>
+	<input type="button" onclick=" location.href='../' " value="Cancelar compra" id="btn_cancelar" /> 
+</form>
