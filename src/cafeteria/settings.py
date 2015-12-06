@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'lettuce.django',
     'cafeteria',
     'clientes',
     'puestos',
@@ -47,6 +46,7 @@ INSTALLED_APPS = (
     'proveedores',
     'compras',
     'ventas',
+    'cafeteria_administration',
 
 )
 
@@ -66,7 +66,7 @@ ROOT_URLCONF = 'cafeteria.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
