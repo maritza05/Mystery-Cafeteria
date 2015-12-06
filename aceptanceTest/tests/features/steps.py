@@ -17,19 +17,19 @@ def set_browser():
 @step(u'Given Que la compra "([^"]*)" esta en proceso')
 def given_que_la_compra_group1_esta_en_proceso(step, group1):
     # Probaré google
-    browser.get('http://localhost:8000/compras/nueva_compra.html')
+    browser.get('http://localhost:8000/compras/nuevo')
 
 
 @step(u'When Oprimo el botón de cancelar compra')
 def when_oprimo_el_boton_de_cancelar_compra(step):
     boton = browser.find_element_by_id("btn_cancelar")
-    boton.clic()
+    boton.click()
 
 
-@step(u'Then Puedo ver una lista con las compras que he realizado')
+@step(u'Then Puedo ver ')
 def then_puedo_ver_una_lista_con_las_compras_que_he_realizado(step):
-    listaCompras = browser.find_elements('compra')
-    assert listaCompras.length > 0
+    listaCompra = browser.find_element_by_tag_name('h1')
+    assert "Historial de compras" in listaCompra.text, "No se encuentra en la direccion esperada o no hay compras registradas " + str(comprasText)
     # assertTrue
 
 
