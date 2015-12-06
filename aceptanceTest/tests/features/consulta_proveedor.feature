@@ -3,12 +3,7 @@ Feature: Ver lista de Proveedores
     Como empleado registrado
     Quiero consultar los proveedores existentes
 
-Scenario: Consulta de proveedores
-    Given Que he ingresado al sistema como "Maritza"
-    When Oprimo el botón de proveedores
-    Then Puedo ver el mensaje "Proveedores de la cafeteria"
-
-Scenario: Consulta de proveedores
-    Given Que he ingresado al sistema como "Maritza"
-    When Oprimo el botón de ver proveedor
-    Then Puedo ver el mensaje "Proveedor: "
+Scenario: Consulta de proveedores registrados en la cafetería
+    Given Que he ingresado al sistema como "Maritza" y me encuentro en la pagina principal
+    When Oprimo el botón de ver proveedores
+    Then Puedo ver los proveedores registrados en una lista "Proveedores"

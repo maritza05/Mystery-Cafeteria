@@ -4,11 +4,6 @@ Feature: Eliminar proveedores
     Quiero eliminar proveedores
 
 Scenario: Eliminar proveedor
-	Given El proveedor "Café capuccino" se encuentra registrado
-	When Oprimo el botón de elminar 
-	Then Puedo ver el mensaje "Proveedor eliminado exitosamente"
-
-Scenario: Eliminar proveedor
-	Given El proveedor "Café capuccino" se encuentra registrado
-	When Oprimo el botón de elminar 
-	Then Ya no puedo ver el proveedor "Café capuccino" en la lista de proveedores
+	Given El proveedor "Café capuccino" se encuentra registrado en el sistema
+	When Oprimo el botón de elminar proveedor
+	Then Puedo ver una lista con los proveedores registrados

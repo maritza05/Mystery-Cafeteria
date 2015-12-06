@@ -6,9 +6,4 @@ Feature: Visualizar compra
 Scenario: Visualizar historial
     Given Que he ingresado al sistema como "Maritza"
     When Oprimo el botón de historial de compras
-    Then Puedo ver la opcion de "reimprimir ultima compra"
-
-Scenario: Visualizar total
-    Given Que he ingresado al sistema como "Maritza"
-    When Oprimo el botón de historial de compras
-    Then Puedo ver la opcion de "sumar el total de compras"
+    Then Puedo ver "Compras realizadas hasta la fecha" por "Maritza"

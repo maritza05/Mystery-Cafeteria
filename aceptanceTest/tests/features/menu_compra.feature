@@ -5,5 +5,5 @@ Feature: Mostrar menú de día de la semana
 
 Scenario: Mostrar el menu del día de la semana
 	Given Que hoy es "lunes"
-	When Oprimo el botón de menu 
-	Then Puedo ver el mensaje "Menu lunes"
+	When Oprimo el botón de menu del día 
+	Then Puedo ver "Menu lunes" en la pantalla
