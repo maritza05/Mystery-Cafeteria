@@ -1,4 +1,6 @@
 <h1>{{etiqueta_titulo}} Compra</h1>
+<input type="button" onclick=" location.href='../menu' " value="Ver menu" id="btn_menu_dia">
+<input type="button" onclick=" location.href='../promociones' " value="Ver promociones" id="btn_promociones">
 <form action="" method="POST">
 	{% csrf_token %}
 	{{form.as_p}}

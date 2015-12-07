@@ -1,0 +1,7 @@
+<h1>Menu del dia</h1>
+<br>
+{% for producto in productos %}
+	<h4>{{producto}} ${{producto.precio}}</h4>
+	<br>
+{% endfor %}
+<input type="button" onclick=" location.href='../nuevo' " value="regresar a la compra" id="btn_regresar_menu">

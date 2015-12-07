@@ -1,0 +1,7 @@
+<h1>Promociones del dia</h1>
+<br>
+{% for producto in productos %}
+	<h4>{{producto}} -20%</h4>
+	<br>
+{% endfor %}
+<input type="button" onclick=" location.href='../nuevo' " value="regresar a la compra" id="btn_regresar_menu">
