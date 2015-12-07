@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from clientes.models import Clientes
+from clientes.models import Cliente
 from clientes.forms import ClientesForm
 
 
 
 def listar(request):
-    clientes = Clientes.objects.all()
-    return render(request, 'clientes/lista.html', {'compras': compras})
+    clientes = Cliente.objects.all()
+    return render(request, 'clientes/lista.html', {'clientes': clientes})
 
 
 def nuevo_cliente(request):
@@ -20,6 +20,9 @@ def nuevo_cliente(request):
         form = ClientesForm()
     return render(request, 'clientes/nuevo_cliente.html', {'form': form, 'etiqueta_titulo': 'Agregar Cliente', 'etiqueta_boton': 'Agregar'})
 
+def consultar_cliente(request, pk):
+    cliente = get_object_or_404(Cliente, pk=pk)
+    return render(request, 'cliente/consultar_cliente.html', {'clientes':clientes})
 
 def eliminar_cliente(request, pk):
     cliente = get_object_or_404(Clientes, pk=pk)
@@ -27,5 +30,5 @@ def eliminar_cliente(request, pk):
     return redirect('listar')
 
 
-def modificar_clientes(request, pk):
+def modificar_cliente(request, pk):
     return render(request, 'clientes/modificar_clientes.html', {'Clientes':cliente })
