@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from compras.models import Compra
-from compras.forms import CompraForm
-from proveedores.models import Proveedor
-from empleados.models import Empleado
+from clientes.models import Clientes
+from clientes.forms import ClientesForm
+
 
 
 def listar(request):
-    compras = Compra.objects.all()
-    return render(request, 'compras/lista.html', {'compras': compras})
+    clientes = Clientes.objects.all()
+    return render(request, 'clientes/lista.html', {'compras': compras})
 
 
 def nuevo_cliente(request):
@@ -28,5 +27,5 @@ def eliminar_cliente(request, pk):
     return redirect('listar')
 
 
-def modificar_compra(request, pk):
+def modificar_clientes(request, pk):
     return render(request, 'clientes/modificar_clientes.html', {'Clientes':cliente })
