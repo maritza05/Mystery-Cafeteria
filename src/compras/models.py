@@ -13,4 +13,4 @@ class Compra(models.Model):
     monto = models.IntegerField()
 
     def __unicode__(self):
-        return u"Número de compra: [" + str(self.id) + "] realizada el: " + str(self.fecha)
+        return u"Número de compra: [" + str(self.id) + "]"

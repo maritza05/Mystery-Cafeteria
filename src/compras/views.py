@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from compras.models import Compra
 from compras.forms import CompraForm
-from proveedores.models import Proveedor
-from empleados.models import Empleado
 from productos.models import Producto
 
 
@@ -27,13 +25,6 @@ def eliminar_compra(request, pk):
     compra = get_object_or_404(Compra, pk=pk)
     compra.delete()
     return redirect('listar')
-
-
-def detalles_compra(request, pk):
-    compra = get_object_or_404(Compra, pk=pk)
-    proveedor = get_object_or_404(Proveedor, compra.id_proveedor)
-    empleado = get_object_or_404(Empleado, compra.id_empelado)
-    return render(request, 'compras/detalles.html', {'compra':compra, 'proveedor':proveedor, 'empleado':empleado})
 
 
 def menu_productos(request):

@@ -1,10 +1,10 @@
 <h1>Historial de compras</h1>
-<a href="{% url "nueva_compra" %}">Realizar nueva compra</a>
+<a href="{% url "nueva_compra" %}">Realizar una nueva compra</a>
 <br>
 <br>
 {% for compra in compras  %}
 	<h4>{{compra}}</h4>
-	<a href="{% url "detalles_compra" pk=compra.id %}">Ver detalles</a>
+	<h3>[{{compra.fecha}}] {{compra.id_empleado}} compro a {{compra.id_proveedor}} ${{compra.monto}}</h3>
 	<a href="{% url "eliminar_compra" pk=compra.id %}">Eliminar</a>
 	<br>
 {% endfor %}
