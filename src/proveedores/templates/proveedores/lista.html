@@ -1,0 +1,12 @@
+<h1>Registro de proveedores</h1>
+<a id="btn_nuevo_proveedor" href="{% url "nuevo_proveedor" %}">Agregar un nuevo proveedor</a>
+<br>
+<br>
+{% for proveedor in proveedores  %}
+	<h4>{{proveedor}}</h4>
+	<h5>{{proveedor.email}}</h5>
+	<h5>{{proveedor.numero_telefono}}</h5>
+	<a id="btn_editar_proveedor_{{proveedor.id}}" href="{% url "editar_proveedor" pk=proveedor.id %}">Editar</a>
+	<a id="btn_eliminar_proveedor_{{proveedor.id}}" href="{% url "eliminar_proveedor" pk=proveedor.id %}">Eliminar</a>
+	<br>
+{% endfor %}

@@ -1,0 +1,7 @@
+<h1>{{etiqueta}} proveedor</h1>
+<form action="" method="POST">
+	{% csrf_token %}
+	{{form.as_p}}
+	<input type="hidden" name="id" value="{{id}}">
+	<button id="btn_guardar" type="submit">{{etiqueta_boton}}</button>
+</form>
