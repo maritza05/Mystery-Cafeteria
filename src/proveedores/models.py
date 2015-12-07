@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Proveedor(models.Model):
     organizacion = models.CharField(max_length=65)
     email = models.EmailField()

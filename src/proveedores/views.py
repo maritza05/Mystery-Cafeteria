@@ -1,3 +1,17 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def listar(self):
+    pass
+
+
+def nuevo_proveedor(self):
+    pass
+
+
+def eliminar_proveedor(self):
+    pass
+
+
+def editar_proveedor(self):
+    pass
