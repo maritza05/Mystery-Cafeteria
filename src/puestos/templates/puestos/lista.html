@@ -1,0 +1,15 @@
+<h1>Lista Puesto</h1>
+<a href="{% url "nuevo_puesto" %}">Añadir Puesto</a>
+<br>
+<br>
+{% for puesto in puestos  %}
+	<h4>{{puesto}}</h4>
+	
+
+	<button type ="button" onclick="window.location='{% url "consulta_puesto" pk=puesto.id %}'"> Consultar </button>
+	<button type ="button" onclick="window.location='{% url "eliminar_puesto" pk=puesto.id %}'"> Eliminar </button>
+	<button type ="button" onclick="window.location='{% url "modificar_puesto" pk=puesto.id %}'"> Editar </button>
+
+	
+	<br>
+{% endfor %}
