@@ -1,19 +1,9 @@
-Feature: Modificar Clientes
-Con el fin de poder actualizar la información de un cliente
-Como empleado registrado 
-Quiero modificar los clientes
+Feature: Modificar Empleado
+	Con el fin de poder actualizar la información de un empleado
+	Como administrador
+	Quiero modificar los empleados
 
-Scenario: Modificar clientes
-	Dado que el cliente "Vanessa Alcalá" se encuentra registrado en el sistema
-	Cuando hago clic en modificar
-	Entonces debería ser capaz de ver "Vanessa Alcalá vane-06@gmail.com "
-
-Scenario: Guardar datos exitosamente
-	Dado que el cliente "Vanessa Alcalá" se encuentra registrado con el ID "CL-001"
-	Cuando hago clic en guardar
-	Entonces debería ser capaz de ver un mensaje con "El cliente ha sido modificado exitosamente"
-
-Scenario: Modificar un cliente sin éxito
-	Dado que el cliente "Vanessa Alcalá"  se encuentra registrado en el sistema 
-	Cuando hago clic en guardar
-	Entonces debería ser capaz de ver un mensaje con "Información insuficiente, por favor llene todos los campos"
+Scenario: Modificar empleados exitosamente
+	Dado que el empleado "Manuel" se encuentra registrado AND me encuentro en la pantalla de editar
+	Cuando cambio el nombre por "Martin" AND hago clic en el boton de modificar
+	Entonces puedo ver en la lista actualizada de empleados con el empleado "Martin"
