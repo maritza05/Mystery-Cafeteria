@@ -4,7 +4,12 @@
 <br>
 {% for cliente in clientes  %}
 	<h4>{{cliente}}</h4>
-	<a href="{% url "consulta_cliente" pk=cliente.id %}">Consultar Cliente</a>
-	<a href="{% url "eliminar_cliente" pk=cliente.id %}">Eliminar</a>
+	
+
+	<button type ="button" onclick="window.location='{% url "consulta_cliente" pk=cliente.id %}'"> Consultar </button>
+	<button type ="button" onclick="window.location='{% url "eliminar_cliente" pk=cliente.id %}'"> Eliminar </button>
+	<button type ="button" onclick="window.location='{% url "modificar_cliente" pk=cliente.id %}'"> Editar </button>
+
+	
 	<br>
 {% endfor %}
