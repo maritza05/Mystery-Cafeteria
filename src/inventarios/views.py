@@ -9,12 +9,12 @@ def listar(request):
 def modificar_inventario(request, pk):
     inventarios = get_object_or_404(Inventario, pk=pk)
     if request.method == "POST":
-        form = PuestoForm(request.POST, instance=puestos)
+        form = InventarioForm(request.POST, instance=inventarios)
         if form.is_valid():
-            puestos = form.save()
-            puestos.save()
+            inventarios = form.save()
+            inventarios.save()
             return redirect('listar')
     else:
-        form = PuestoForm(instance=puestos)
-    return render(request, 'puestos/nuevo_puesto.html', {'form':form, 'etiqueta_titulo': 'Modificar Puesto', 'etiqueta_boton':'Actualizar'})
+        form = InventarioForm(instance=inventarios)
+    return render(request, 'inventarios/modificar_inventario.html', {'form':form, 'etiqueta_titulo': 'Modificar Inventario', 'etiqueta_boton':'Modificar'})
 # Create your views here.
