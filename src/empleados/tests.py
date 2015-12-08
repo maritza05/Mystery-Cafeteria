@@ -1,79 +1,40 @@
 from django.test import TestCase
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-import unittest
+from django.core.urlresolvers import resolve
+from empleados.views import listar, nuevo_empleado, eliminar_empleado, modificar_empleado, consulta_empleado
+from django.http import HttpRequest
 
 
-# Create your tests here.
-class EmployeeTest(unittest.TestCase):
+class EmpleadosTest(TestCase):
 
-    def setUp(self):
-        self.browser = webdriver.Firefox()
+    def test_url_de_listar_empleado(self):
+        found = resolve('/')
+        self.assertEqual(found.func, listar)
 
-    def tearDown(self):
-        self.browser.quit()
+    def test_titulo_de_la_lista_empleado(self):
+        request = HttpRequest()
+        response = nuevo_empleado(request)
+        self.assertTrue(response.content.contains('Lista Empleados'))
 
-    def test_register_employee(self):
-       #empleado accede a la página
-        self.brower.get('http://localhost:8000')
+    def test_url_agregar_nuevo_empleado(self):
+        found = resolve('/nuevo')
+        self.assertEqual(found.func, nuevo_empleado)
 
-        # El encabezado de la página dice Registro
-        self.assertIn('Registro', self.browser.title)
-        header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('Registro Empleados', header_text)
-
-        # Se realiza el registro del empleado
-        nombre_empleado = self.browser.find_element_by_id('employee_name')
-        self.assertEqual(nombre_empleado.get_attribute('placeholder'),
-                'Ingrese el nombre del empleado'
-                )
-        nombre_empleado.send_keys('Manuel')
+    def test_titulo_de_agregar_empleado(self):
+        request = HttpRequest()
+        response = nuevo_empleado(request)
+        self.assertTrue(response.content.contains('Agregar Empleado'))
 
 
-        password_empleado = self.browser.find_element_by_id('password_employee')
-        self.assertEqual(password_empleado.get_attribute('placeholder'),
-                'Ingrese la contraseña del empleado'
-                )
-        password_cliente.send_keys('employeeMA1234')
+    def test_url_editar_empleado_(self, id_editar_empleado):
+        found = resolve('/' + id_editar_empleado + '/modificar')
+        self.assertEqual(found.func, editar_empleado)
 
-        apellido_paterno = self.browser.find_element_by_id('apellido_paterno')
-        self.assertEqual(apellido_paterno.get_attribute('placeholder'),
-                'Ingrese el apellido paterno del empleado'
-                )
-        apellido_paterno.send_keys('Almaraz')
-
-        apellido_materno = self.browser.find_element_by_id('apellido_materno')
-        self.assertEqual(apellido_materno.get_attribute('placeholder'),
-                'Ingrese el apellido materno del empleado'
-                )
-         apellido_materno.send_keys('Torres')
-
-        email = self.browser.find_element_by_id('email')
-        self.assertEqual(email.get_attribute('placeholder'),
-                'Ingrese el email del empleado'
-                )
-         email.send_keys('manuel_12@gmail.com')
-
-        nombre_usuario = self.find_element_by_id('user_name')
-        self.assertEqual(nombre_usuario.get_attribute('placeholder'),
-                'Ingrese el nombre de usuario del empleado'
-                )
-        nombre_usuario.send_keys('Manuelin')
-
-        puesto_empleado = self.browser.find_element_by_id('id_puesto')
-        self.assertEqual(puesto_empleado.get_attribute('value'),
-                'Cajero'
-                )
-        puesto_empleado.send_keys(Keys.ENTER)
+    def test_titulo_de_modificar_empleado(self):
+        request = HttpRequest()
+        response = modificar_empleado(request)
+        self.assertTrue(response.content.contains('Modificar Empleado'))
 
 
-        boton_registrar = self.driver.find_element_by_id('registrer_button_employee')
-        self.assertEqual(boton_registrar.get_attribute('text'),
-                'Registrar'
-        boton_registrar.click()
-
-         # Página actualizada con el encabezado "Empleado registrado exitosamente"
-        header_successful = self.browser.find_element_by_tag('h1').text
-        self.assertEqual(header_sucessful, 'Empleado registrado exitosamente')
-
-        self.fail('Finish the test!')
+    def test_url_eliminar_empleado(self, id_eliminar_empleado):
+        found = resolve('/' + id_eliminar_empleado + '/eliminar')
+        self.assertEqual(found.func, eliminar_empleado)
