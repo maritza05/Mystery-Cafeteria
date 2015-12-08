@@ -5,3 +5,6 @@ class Producto(models.Model):
 	descripcion = models.CharField('Descripcion', max_length = 120)
 	precio = models.DecimalField(max_digits=20, decimal_places=3)
 
+	def __unicode__(self):
+		return self.nombre+" "+self.descripcion+" "+self.precio
+
