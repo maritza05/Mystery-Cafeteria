@@ -1,0 +1,8 @@
+<h1>{{etiqueta_titulo}} Producto</h1>
+<form action="" method="POST">
+	{% csrf_token %}
+	{{form.as_p}}
+	<input type="hidden" name="nombre" value="{{nombre}}">
+	<button type="submit">{{etiqueta_boton}}</button>
+	<input type="button" onclick=" location.href='../' " value="Regresar" id="btn_return" /> 
+</form>

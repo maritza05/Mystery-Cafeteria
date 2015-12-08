@@ -1,0 +1,10 @@
+<h1>Catalogo Productos</h1>
+<a href="{% url "nuevo_producto" %}" id="btn_producto_nuevo">Nuevo Producto</a>
+<br>
+<br>
+{% for producto in productos  %}
+	<h4>{{producto}}</h4>
+	<h3>[{{producto.nombre}}] Descripcion: {{producto.descripcion}} Precio: ${{producto.precio}}</h3>
+	<a href="{% url "eliminar_producto" pk=producto.nombre %}">Eliminar</a>
+	<br>
+{% endfor %}
