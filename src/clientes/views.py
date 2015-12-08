@@ -20,15 +20,24 @@ def nuevo_cliente(request):
         form = ClientesForm()
     return render(request, 'clientes/nuevo_cliente.html', {'form': form, 'etiqueta_titulo': 'Agregar Cliente', 'etiqueta_boton': 'Agregar'})
 
-def consultar_cliente(request, pk):
+def consulta_cliente(request, pk):
     cliente = get_object_or_404(Cliente, pk=pk)
-    return render(request, 'cliente/consultar_cliente.html', {'clientes':clientes})
+    return render(request, 'clientes/consulta_cliente.html', {'clientes':cliente})
 
 def eliminar_cliente(request, pk):
-    cliente = get_object_or_404(Clientes, pk=pk)
+    cliente = get_object_or_404(Cliente, pk=pk)
     cliente.delete()
     return redirect('listar')
 
 
 def modificar_cliente(request, pk):
-    return render(request, 'clientes/modificar_clientes.html', {'Clientes':cliente })
+    cliente = get_object_or_404(Cliente, pk=pk)
+    if request.method == "POST":
+        form = ClientesForm(request.POST, instance=cliente)
+        if form.is_valid():
+            cliente = form.save()
+            cliente.save()
+            return redirect('listar')
+    else:
+        form = ClientesForm(instance=cliente)
+    return render(request, 'clientes/nuevo_cliente.html', {'form':form, 'etiqueta_titulo': 'Modificar Cliente', 'etiqueta_boton':'Actualizar'})
