@@ -1,0 +1,10 @@
+<h1>Cliente {{clientes.nombre}}</h1>
+<p>Información del cliente</p>
+
+
+<p>Nombre: {{clientes.nombre}}</p>
+<p>Apellidos: {{clientes.apellido_paterno}} {{clientes.apellido_materno}}</p>
+<p>Nombre de usuario: {{clientes.nombre_usuario}}</p>
+<p>Correo Electrónico: {{clientes.mail}}</p>
+<button type ="button" onclick="window.location='{% url "listar" %}'"> Regresar a lista </button>
+
