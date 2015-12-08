@@ -1,0 +1,15 @@
+<h1>Lista Empleado</h1>
+<a href="{% url "nuevo_empleado" %}">Añadir Empleado</a>
+<br>
+<br>
+{% for empleado in empleados  %}
+	<h4>{{empleado}}</h4>
+	
+
+	<button type ="button" onclick="window.location='{% url "consulta_empleado" pk=empleado.id %}'"> Consultar </button>
+	<button type ="button" onclick="window.location='{% url "eliminar_empleado" pk=empleado.id %}'"> Eliminar </button>
+	<button type ="button" onclick="window.location='{% url "modificar_empleado" pk=empleado.id %}'"> Editar </button>
+
+	
+	<br>
+{% endfor %}
