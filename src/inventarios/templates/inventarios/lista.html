@@ -1,0 +1,14 @@
+<h1>Lista Inventario</h1>
+<a href="{% url "modificar_inventario" %}">Modificar Inventario</a>
+<br>
+<br>
+{% for inventario in inventarios  %}
+	<h4>{{inventario.id_producto}}  {{inventario.cantidad}} </h4>
+	</br>
+	
+
+	<button type ="button" onclick="window.location='{% url "modificar_inventario" pk=inventario.id_producto %}'"> Modificar </button>
+
+	
+	<br>
+{% endfor %}
